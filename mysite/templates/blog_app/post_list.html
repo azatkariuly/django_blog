@@ -1,0 +1,24 @@
+{% extends 'blog_app/base.html' %}
+{% block content %}
+<div class="centerstage">
+  {% for post in post_list %}
+    <div class="card bg-secondary mb-3" style="max-width: 300rem;" >
+      <div onclick="location.href='{% url 'post_detail' pk=post.pk %}';" style="cursor: pointer;">
+        <div class="card-header"><a href="#">azatkariuly</a></div>
+        <div class="card-body">
+          <h4 class="card-title">{{post.title}}</h4>
+          <p class="card-text"><b>Created on: </b> {{post.create_date|date:"d M Y"}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="post">
+      <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+      <div class="date">
+        <p>Created on: {{post.create_date|date:"D M Y"}}</p>
+      </div>
+      <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comment.count}}</a>
+    </div> -->
+  {% endfor %}
+</div>
+{% endblock %}
